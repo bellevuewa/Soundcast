@@ -36,7 +36,8 @@ network_config = toml.load(
 )
 
 
-
+log_path = os.path.dirname(emme_config["log_file_name"])
+os.makedirs(log_path, exist_ok=True)
 # Create a logging file to report model progress
 logging.basicConfig(filename=emme_config["log_file_name"], level=logging.DEBUG)
 

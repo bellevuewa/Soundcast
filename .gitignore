@@ -4,6 +4,13 @@ outputs/
 projects/
 Daysim/last-run.log
 inputs/networks/
+inputs/SC_inputs_062025
+inputs/db
+inputs/landuse
+inputs/subarea_definition
+inputs/base_year
+inputs/network
+inputs/scenario
 *.pyc
 *.tsv
 *.tex
