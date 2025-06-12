@@ -718,4 +718,10 @@ def main(state):
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    sys.path.append(os.path.abspath(os.path.join(os.getcwd())))
+    sys.path.append(os.path.join(os.getcwd(), "inputs"))
+    sys.path.append(os.path.join(os.getcwd(), "scripts"))    
+    from scripts.settings import state, run_args
+    state = state.generate_state(run_args.args.configs_dir)      
+    main(state)

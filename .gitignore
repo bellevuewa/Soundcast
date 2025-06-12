@@ -13,3 +13,7 @@ soundcast_log.txt
 inputs/base_year
 /working/
 /scripts/summarize/RTP_summary/.quarto
+inputs/db
+*.pyc
+inputs/SC_inputs_062025
+inputs/subarea_definition
