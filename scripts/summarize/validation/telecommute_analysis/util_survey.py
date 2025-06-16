@@ -32,9 +32,12 @@ class ValidationData:
         for source_name in self.config["survey_directories"].keys():
             if uncloned:
                 # get uncloned data
+                # survey_path = Path(
+                #     self.config["survey_directories"][source_name],
+                #     self.config["uncloned_folder"],
+                # )
                 survey_path = Path(
-                    self.config["survey_directories"][source_name],
-                    self.config["uncloned_folder"],
+                    self.config["survey_directories"][source_name]
                 )
             else:
                 # get cloned data
