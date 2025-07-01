@@ -56,6 +56,7 @@ model_dir = '../../../..'
 # ---- survey results
 # attach uncloned folder path when reading uncloned data
 uncloned_folder = "uncloned"
+cloned_folder = "cloned"
 
 # list all survey sources to be indluded in validation
 [survey_directories]

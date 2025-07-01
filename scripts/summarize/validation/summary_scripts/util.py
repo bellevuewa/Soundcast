@@ -61,7 +61,10 @@ class ValidationData:
                 )
             else:
                 # get cloned data
-                survey_path = self.config["survey_directories"][source_name]
+                survey_path = survey_path = Path(
+                    self.config["survey_directories"][source_name],
+                    self.config["cloned_folder"],
+                )
 
             df = pl.read_csv(Path(survey_path, "_" + df_name + ".tsv"), separator="\t")
             # df["source"] = source_name
@@ -102,13 +105,13 @@ class ValidationData:
             per_day_data = self._get_data("person_day", uncloned)
             return per_day_data
 
-    def _get_tour_data(self, uncloned=True):
+    def _get_tour_data(self, uncloned=False):
             
         if 'tour' in self.get_data:
             tour_data = self._get_data("tour", uncloned)
             return tour_data
 
-    def _get_trip_data(self, uncloned=True):
+    def _get_trip_data(self, uncloned=False):
         
         if 'trip' in self.get_data:
             trip_data = self._get_data("trip", uncloned)
