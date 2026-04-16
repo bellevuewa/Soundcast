@@ -5,12 +5,15 @@
 ##############################
 # Input paths and model years
 ##############################
+protected_namespaces = '()'
+debug_skims_and_paths = false
 model_year = '2023'
 base_year = '2023'
 landuse_inputs = '062025'
 network_inputs = '2023_v8'
-soundcast_inputs_dir = 'D:/Soundcast/SC_baseyear_2023/inputs/SC_inputs_062025'
-
+db_name = 'soundcast_inputs_2023.db'
+soundcast_inputs_dir = 'E:/projects/SC_baseyear_2023/inputs/SC_inputs_062025'
+abm_model = 'daysim'
 ##############################
 # Initial Setup
 ##############################
@@ -39,7 +42,7 @@ tnc_av = false    # TNCs (if available) are AVs
 include_tnc_to_transit = false # AV to transit path type allowed
 include_knr_to_transit = false # Kiss and Ride to Transit
 include_delivery = false
-include_telecommute = false
+include_telecommute = true
 
 ##############################
 # Other Controls
@@ -47,7 +50,7 @@ include_telecommute = false
 run_integrated = false
 should_build_shadow_price = false
 delete_banks = false
-include_tnc_emissions = false
+include_tnc_emissions = true
 
 ##############################
 # Pricing
