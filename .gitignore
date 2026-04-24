@@ -13,3 +13,7 @@ soundcast_log.txt
 inputs/base_year
 /working/
 /scripts/summarize/RTP_summary/.quarto
+*.h5
+inputs/v4.0_2026_2050_RTP
+inputs/db
+*.pyc

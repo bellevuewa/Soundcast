@@ -9,18 +9,18 @@ protected_namespaces = '()'
 debug_skims_and_paths = false
 model_year = '2023'
 base_year = '2023'
-landuse_inputs = '062025'
-network_inputs = '2023_v8'
+landuse_inputs = '23_on_23_v3'
+network_inputs = 'base_year_2023_final'
 db_name = 'soundcast_inputs_2023.db'
-soundcast_inputs_dir = 'E:/projects/SC_baseyear_2023/inputs/SC_inputs_062025'
+soundcast_inputs_dir = 'E:/projects/SC_baseyear_2023/inputs/v4.0_2026_2050_RTP'
 abm_model = 'daysim'
 ##############################
 # Initial Setup
 ##############################
 run_accessibility_calcs = true
-run_setup_emme_project_folders = false
-run_setup_emme_bank_folders = false
-run_copy_scenario_inputs = false
+run_setup_emme_project_folders = true
+run_setup_emme_bank_folders = true
+run_copy_scenario_inputs = true
 run_import_networks = true
 
 ##############################
@@ -50,7 +50,7 @@ include_telecommute = true
 run_integrated = false
 should_build_shadow_price = false
 delete_banks = false
-include_tnc_emissions = true
+include_tnc_emissions = false
 
 ##############################
 # Pricing

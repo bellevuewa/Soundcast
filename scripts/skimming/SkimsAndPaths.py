@@ -598,8 +598,12 @@ def average_skims_to_hdf5_concurrent(my_project, average_skims):
     e = "Skims" in my_store
     # Now delete "Skims" store if exists
     if e:
-        del my_store["Skims"]
-        skims_group = my_store.create_group("Skims")
+        try: 
+            del my_store["Skims"]
+            skims_group = my_store.create_group("Skims")
+        except Exception as ex:
+            skims_logger.error("Error deleting existing Skims group: %s", str(ex))
+            skims_logger.info(f"hdf5 file: {hdf5_filename}.")
         # If not there, create the group
     else:
         skims_group = my_store.create_group("Skims")
@@ -1348,8 +1352,8 @@ def bike_facility_weight(my_project, link_df, network_settings):
     # Replace the facility ID with the estimated  marginal rate of substituion
     # value from Broach et al., 2012 (e.g., replace 'standard' with -0.108)
     df["facility_wt"] = df["@bkfac"].copy()
-    with pd.option_context("future.no_silent_downcasting", True):
-        df = df.replace(network_settings.facility_dict)
+    # with pd.option_context("future.no_silent_downcasting", True):
+    df = df.replace(network_settings.facility_dict)
     df["facility_wt"] = df["facility_wt"].astype(float)
 
     return df
@@ -1823,7 +1827,7 @@ def run(free_flow_skims=False, num_iterations=100):
     for i in range(0, 12, state.emme_settings.parallel_instances):
         l = project_list[i : i + state.emme_settings.parallel_instances]
         export_to_hdf5_pool(l, free_flow_skims)
-    # average_skims_to_hdf5_concurrent(EmmeProject('projects/7to8/7to8.emp'), False)
+    # average_skims_to_hdf5_concurrent(EmmeProject('projects/7to8/7to8.emp', state.model_input_dir ), False)
 
     f.close()
     end_of_run = time.time()
