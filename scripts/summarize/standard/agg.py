@@ -23,7 +23,6 @@ def merge_geography(df, df_geog, df_geographic_lookup):
 
     return df
 
-
 def h5_df(h5file, table, polars=True):
     """Load h5 file as pandas or polars dataframe."""
     df = pd.DataFrame()
@@ -36,7 +35,6 @@ def h5_df(h5file, table, polars=True):
         df = pl.from_pandas(df)
 
     return df
-
 
 def process_expressions(df, df_expr, table_name, survey):
     """Aggregate data according to each row of an expression file.
